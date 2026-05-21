@@ -125,19 +125,21 @@ Scan a single text for prompt injection attacks.
 **Output:**
 ```json
 {
-  "risk_score": 0.85,
-  "risk_level": "high",
+  "risk_score": 0.6815,
+  "risk_level": "medium",
+  "is_injection": true,
   "safe": false,
-  "matches": [
+  "reasoning": "Matched 2 pattern(s): system_override...",
+  "patterns_matched": [
     {
-      "pattern": "ignore_previous",
+      "name": "system_override",
       "text": "Ignore all previous instructions",
-      "severity": "critical"
+      "description": "Instructs the model to ignore previous instructions"
     },
     {
-      "pattern": "role_manipulation",
-      "text": "You are now DAN",
-      "severity": "high"
+      "name": "you_are_dan",
+      "text": "DAN",
+      "description": "DAN / Developer Mode jailbreak attempt"
     }
   ]
 }
@@ -146,10 +148,12 @@ Scan a single text for prompt injection attacks.
 **Safe input example:**
 ```json
 {
-  "risk_score": 0.05,
+  "risk_score": 0.0,
   "risk_level": "safe",
+  "is_injection": false,
   "safe": true,
-  "matches": []
+  "reasoning": "No injection patterns detected in the input.",
+  "patterns_matched": []
 }
 ```
 
