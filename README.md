@@ -3,6 +3,7 @@
 [![Python](https://img.shields.io/badge/Python-3.11%2B-blue)](https://python.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![CI](https://github.com/ChenneyZhuang/mcp-injection-guard/actions/workflows/ci.yml/badge.svg)](https://github.com/ChenneyZhuang/mcp-injection-guard/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/ChenneyZhuang/mcp-injection-guard)](https://github.com/ChenneyZhuang/mcp-injection-guard/releases)
 
 **The first free, open-source MCP server for prompt injection detection.**
 Screen every user input before it reaches your LLM — catch jailbreak attempts,
