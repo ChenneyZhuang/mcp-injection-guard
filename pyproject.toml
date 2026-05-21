@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mcp-injection-guard"
-version = "0.1.0"
+version = "0.1.1"
 description = "MCP server for prompt injection detection — scan user input before it reaches your LLM"
 readme = "README.md"
 license = {text = "MIT"}
