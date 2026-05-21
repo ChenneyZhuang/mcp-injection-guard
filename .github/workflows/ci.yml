@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+      - name: Verify imports
+        run: |
+          python -c "from mcp_injection_guard.server import mcp; print('OK:', [t.name for t in mcp._tool_manager._tools.values()])"
+      - name: Lint
+        run: |
+          pip install ruff
+          ruff check --output-format=github . || true

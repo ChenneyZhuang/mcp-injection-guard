@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcp-injection-guard"
+version = "0.1.0"
+description = "MCP server for prompt injection detection — scan user input before it reaches your LLM"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+authors = [{name = "Chenney Zhuang", email = "dev@example.com"}]
+keywords = ["mcp", "prompt-injection", "security", "llm", "ai-safety"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "mcp>=1.2",
+    "prompt-injection-guard @ git+https://github.com/ChenneyZhuang/prompt-injection-guard.git",
+]
+
+[project.scripts]
+mcp-injection-guard = "mcp_injection_guard.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
