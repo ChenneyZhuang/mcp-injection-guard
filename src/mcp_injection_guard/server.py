@@ -17,9 +17,11 @@ def check_injection(text: str) -> dict:
     return {
         "risk_score": round(result.score, 4),
         "risk_level": result.risk_level.value,
-        "matches": [
-            {"pattern": m.pattern_name, "text": m.matched_text, "severity": m.severity}
-            for m in result.matches
+        "is_injection": result.is_injection,
+        "reasoning": result.reasoning,
+        "patterns_matched": [
+            {"name": m.name, "text": m.matched_text, "description": m.description}
+            for m in result.patterns_matched
         ],
         "safe": result.risk_level.value == "safe",
     }
